@@ -16,15 +16,15 @@
 
 package org.springframework.core.annotation;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * @author ZiCheng Zhang
@@ -50,8 +50,8 @@ public class AlisforsTests {
 	@Test2
 	public @interface Test3 {
 
-		@AliasFor(annotation = Test1.class, attribute = "test1")
-		@AliasFor(annotation = Test2.class, attribute = "test2")
+		@MyAliasFor(annotation = Test1.class, attribute = "test1")
+		@MyAliasFor(annotation = Test2.class, attribute = "test2")
 		String test3() default "test3";
 	}
 
@@ -65,9 +65,9 @@ public class AlisforsTests {
 
 	@Test
 	public void test1() {
-		Test1 annotation = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element1.class, Test1.class);
-		Test2 test2 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element1.class, Test2.class);
-		Test1 annotation2 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element2.class, Test1.class);
+		Test1 annotation = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element1.class, Test1.class);
+		Test2 test2 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element1.class, Test2.class);
+		Test1 annotation2 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element2.class, Test1.class);
 		assertEquals(annotation, annotation2);
 		assertNotNull(annotation);
 		assertNotNull(test2);
@@ -78,16 +78,16 @@ public class AlisforsTests {
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface Test4 {
 
-		@AliasFor("test2")
-		@AliasFor("test3")
+		@MyAliasFor("test2")
+		@MyAliasFor("test3")
 		String test1() default "test";
 
-		@AliasFor("test1")
-		@AliasFor("test3")
+		@MyAliasFor("test1")
+		@MyAliasFor("test3")
 		String test2() default "test";
 
-		@AliasFor("test1")
-		@AliasFor("test2")
+		@MyAliasFor("test1")
+		@MyAliasFor("test2")
 		String test3() default "test";
 	}
 
@@ -97,7 +97,7 @@ public class AlisforsTests {
 
 	@Test
 	public void test2() {
-		Test4 annotation = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element3.class, Test4.class);
+		Test4 annotation = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element3.class, Test4.class);
 		String test1 = annotation.test1();
 		String test2 = annotation.test2();
 		String test3 = annotation.test3();
@@ -111,16 +111,16 @@ public class AlisforsTests {
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface Test5 {
 
-		@AliasFor("test2")
-		@AliasFor("test3")
+		@MyAliasFor("test2")
+		@MyAliasFor("test3")
 		String test1() default "test1";
 
-		@AliasFor("test1")
-		@AliasFor("test3")
+		@MyAliasFor("test1")
+		@MyAliasFor("test3")
 		String test2() default "test1";
 
-		@AliasFor("test1")
-		@AliasFor("test2")
+		@MyAliasFor("test1")
+		@MyAliasFor("test2")
 		String test3() default "test1";
 	}
 
@@ -129,17 +129,17 @@ public class AlisforsTests {
 	@Test5
 	public @interface Test6 {
 
-		@AliasFor("test5")
-		@AliasFor("test6")
+		@MyAliasFor("test5")
+		@MyAliasFor("test6")
 		String test4() default "test2";
 
-		@AliasFor("test4")
-		@AliasFor("test6")
+		@MyAliasFor("test4")
+		@MyAliasFor("test6")
 		String test5() default "test2";
 
-		@AliasFor(annotation = Test5.class, attribute = "test1")
-		@AliasFor("test4")
-		@AliasFor("test5")
+		@MyAliasFor(annotation = Test5.class, attribute = "test1")
+		@MyAliasFor("test4")
+		@MyAliasFor("test5")
 		String test6() default "test2";
 	}
 
@@ -148,7 +148,7 @@ public class AlisforsTests {
 	@Test6
 	public @interface Test7 {
 
-		@AliasFor(annotation = Test6.class, attribute = "test6")
+		@MyAliasFor(annotation = Test6.class, attribute = "test6")
 		String test7() default "test3";
 	}
 
@@ -158,8 +158,8 @@ public class AlisforsTests {
 
 	@Test
 	public void test3() {
-		Test5 test5 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element4.class, Test5.class);
-		Test6 test6 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element4.class, Test6.class);
+		Test5 test5 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element4.class, Test5.class);
+		Test6 test6 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element4.class, Test6.class);
 		assertNotNull(test5);
 		assertNotNull(test6);
 		System.out.println(test5.toString());
@@ -176,16 +176,16 @@ public class AlisforsTests {
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface Test8 {
 
-		@AliasFor("test2")
-		@AliasFor("test3")
+		@MyAliasFor("test2")
+		@MyAliasFor("test3")
 		String test1() default "test1";
 
-		@AliasFor("test1")
-		@AliasFor("test3")
+		@MyAliasFor("test1")
+		@MyAliasFor("test3")
 		String test2() default "test1";
 
-		@AliasFor("test1")
-		@AliasFor("test2")
+		@MyAliasFor("test1")
+		@MyAliasFor("test2")
 		String test3() default "test1";
 	}
 
@@ -194,17 +194,17 @@ public class AlisforsTests {
 	@Test8
 	public @interface Test9 {
 
-		@AliasFor(annotation = Test8.class, attribute = "test1")
-		@AliasFor("test5")
-		@AliasFor("test6")
+		@MyAliasFor(annotation = Test8.class, attribute = "test1")
+		@MyAliasFor("test5")
+		@MyAliasFor("test6")
 		String test4() default "test2";
 
-		@AliasFor("test4")
-		@AliasFor("test6")
+		@MyAliasFor("test4")
+		@MyAliasFor("test6")
 		String test5() default "test2";
 
-		@AliasFor("test4")
-		@AliasFor("test5")
+		@MyAliasFor("test4")
+		@MyAliasFor("test5")
 		String test6() default "test2";
 	}
 
@@ -213,7 +213,7 @@ public class AlisforsTests {
 	@Test9
 	public @interface Test10 {
 
-		@AliasFor(annotation = Test9.class, attribute = "test6")
+		@MyAliasFor(annotation = Test9.class, attribute = "test6")
 		String test7() default "test3";
 	}
 
@@ -228,8 +228,8 @@ public class AlisforsTests {
 	 */
 	@Test
 	public void test4() {
-		Test8 test8 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element5.class, Test8.class);
-		Test9 test9 = AnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element5.class, Test9.class);
+		Test8 test8 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element5.class, Test8.class);
+		Test9 test9 = MyAnnotatedElementUtils.getMergedAnnotationWithMultipleAliases(Element5.class, Test9.class);
 		assertNotNull(test8);
 		assertNotNull(test9);
 		System.out.println(test8.toString());
