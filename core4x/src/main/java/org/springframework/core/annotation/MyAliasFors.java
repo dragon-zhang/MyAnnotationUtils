@@ -23,11 +23,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * {@link AliasFors} is a supplement to {@link MyAliasFor}.
+ * {@link MyAliasFors} is a supplement to {@link MyAliasFor}.
  * Originally, it could only be a single alias for each other,
  * but now supports multiple aliases.
  * <p>
- * This is a example of using {@link AliasFors}:
+ * This is a example of using {@link MyAliasFors}:
  * <pre class="code">
  * public &#064;interface Father {
  *
@@ -58,7 +58,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-public @interface AliasFors {
+public @interface MyAliasFors {
 
     MyAliasFor[] value() default {};
 

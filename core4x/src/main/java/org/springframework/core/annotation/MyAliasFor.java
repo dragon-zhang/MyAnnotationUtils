@@ -53,10 +53,10 @@ import java.lang.annotation.Target;
  * <p>Like with any annotation in Java, the mere presence of {@code @AliasFor}
  * on its own will not enforce alias semantics. For alias semantics to be
  * enforced, annotations must be <em>loaded</em> via the utility methods in
- * {@link AnnotationUtils}. Behind the scenes, Spring will <em>synthesize</em>
+ * {@link MyAnnotationUtils}. Behind the scenes, Spring will <em>synthesize</em>
  * an annotation by wrapping it in a dynamic proxy that transparently enforces
  * <em>attribute alias</em> semantics for annotation attributes that are
- * annotated with {@code @AliasFor}. Similarly, {@link AnnotatedElementUtils}
+ * annotated with {@code @AliasFor}. Similarly, {@link MyAnnotatedElementUtils}
  * supports explicit meta-annotation attribute overrides when {@code @AliasFor}
  * is used within an annotation hierarchy. Typically you will not need to
  * manually synthesize annotations on your own since Spring will do that for
@@ -178,16 +178,16 @@ import java.lang.annotation.Target;
  * @author Sam Brannen
  * @author Zicheng Zhang
  * @since 4.2
- * @see AnnotatedElementUtils
- * @see AnnotationUtils
- * @see AnnotationUtils#synthesizeAnnotation(Annotation, java.lang.reflect.AnnotatedElement)
+ * @see MyAnnotatedElementUtils
+ * @see MyAnnotationUtils
+ * @see MyAnnotationUtils#synthesizeAnnotation(Annotation, java.lang.reflect.AnnotatedElement)
  * @see SynthesizedAnnotation
- * @see AliasFors
+ * @see MyAliasFors
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-@Repeatable(AliasFors.class)
+@Repeatable(MyAliasFors.class)
 public @interface MyAliasFor {
 
 	/**
