@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="668ee421-aee9-4028-be02-b1f875357f02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAliasFor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAliasFors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotatedElementUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotationTypeMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotationTypeMappings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyMergedAnnotations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyMultipleAliasAnnotations.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jnz9f6V9bPPx22CU402zBRSSnq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.springframework.core.annotation" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AlisforsTests">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AlisforsTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core4x" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.core.annotation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.core.annotation" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.core.annotation.AlisforsTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AlisforsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core5x" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.core.annotation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.core.annotation" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.core.annotation.AlisforsTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AlisforsTests" />
+        <item itemvalue="JUnit.AlisforsTests (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="668ee421-aee9-4028-be02-b1f875357f02" name="Default Changelist" comment="" />
+      <created>1604454493720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604454493720</updated>
+      <workItem from="1604454494814" duration="1331000" />
+      <workItem from="1604469007756" duration="3715000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-105" y="-1274" key="#Project_Structure" timestamp="1604472674585">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="-105" y="-1274" key="#Project_Structure/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472674585" />
+    <state x="208" y="23" key="#Project_Structure/0.23.1440.805@0.23.1440.805" timestamp="1604454650879" />
+    <state x="519" y="-995" key="#com.intellij.ide.util.MemberChooser" timestamp="1604472003054">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="519" y="-995" key="#com.intellij.ide.util.MemberChooser/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472003054" />
+    <state x="-129" y="-1417" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604472031129">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="-129" y="-1417" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472031129" />
+    <state width="2518" height="502" key="GridCell.Tab.0.bottom" timestamp="1604472744170">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.0.bottom/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744170" />
+    <state width="2518" height="502" key="GridCell.Tab.0.center" timestamp="1604472744169">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.0.center/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744169" />
+    <state width="2518" height="502" key="GridCell.Tab.0.left" timestamp="1604472744169">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.0.left/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744169" />
+    <state width="2518" height="502" key="GridCell.Tab.0.right" timestamp="1604472744169">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.0.right/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744169" />
+    <state width="2518" height="502" key="GridCell.Tab.1.bottom" timestamp="1604472744171">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.1.bottom/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744171" />
+    <state width="2518" height="502" key="GridCell.Tab.1.center" timestamp="1604472744170">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.1.center/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744170" />
+    <state width="2518" height="502" key="GridCell.Tab.1.left" timestamp="1604472744170">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.1.left/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744170" />
+    <state width="2518" height="502" key="GridCell.Tab.1.right" timestamp="1604472744171">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="502" key="GridCell.Tab.1.right/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472744171" />
+    <state x="417" y="135" key="RollbackChangesDialog" timestamp="1604455063171">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="417" y="135" key="RollbackChangesDialog/0.23.1440.805@0.23.1440.805" timestamp="1604455063171" />
+    <state x="215" y="-1070" key="SettingsEditor" timestamp="1604472661754">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="215" y="-1070" key="SettingsEditor/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472661754" />
+    <state x="320" y="165" key="Vcs.Push.Dialog.v2" timestamp="1604454535223">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="320" y="165" key="Vcs.Push.Dialog.v2/0.23.1440.805@0.23.1440.805" timestamp="1604454535223" />
+    <state x="519" y="-788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604472577362">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="519" y="-788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472577362" />
+  </component>
+</project>

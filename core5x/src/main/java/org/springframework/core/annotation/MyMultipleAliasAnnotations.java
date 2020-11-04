@@ -16,25 +16,25 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
- * {@link MyMergedAnnotations} implementation that searches for and adapts
- * annotations and meta-annotations using {@link MyAnnotationTypeMappings}.
+ * {@link MergedAnnotations} implementation that searches for and adapts
+ * annotations and meta-annotations using {@link AnnotationTypeMappings}.
  *
  * <h3>Annotation Attribute Supporting Multiple Aliases</h3>
  * <p>As of Spring Framework 5.3, one annotation attribute supports
  * the declaration of multiple aliases. For more information, see
- * {@link MyAliasFors} please.
+ * {@link AliasFors} please.
  *
  * todo
  * This class should be merged with {@link TypeMappedAnnotations}
  * in the future.Mr Sam Brannen, Mr Phillip Webb confirm this please.
  *
  * @author ZiCheng Zhang
- * @see MyAliasFors
- * @see MyAnnotatedElementUtils#getMergedAnnotationWithMultipleAliases(AnnotatedElement, Class)
- * @see MyMergedAnnotations#fromMultipleAliasesAnnotations(AnnotatedElement, MyMergedAnnotations.SearchStrategy, org.springframework.core.annotation.RepeatableContainers)
+ * @see AliasFors
+ * @see AnnotatedElementUtils#getMergedAnnotationWithMultipleAliases(AnnotatedElement, Class)
+ * @see MergedAnnotations#fromMultipleAliasesAnnotations(AnnotatedElement, SearchStrategy, RepeatableContainers)
  * @since 5.3
  */
-final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
+final class MyMultipleAliasAnnotations implements MergedAnnotations {
 
 	/**
 	 * Shared instance that can be used when there are no annotations.
@@ -49,7 +49,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 	private final AnnotatedElement element;
 
 	@Nullable
-	private final MyMergedAnnotations.SearchStrategy searchStrategy;
+	private final SearchStrategy searchStrategy;
 
 	@Nullable
 	private final Annotation[] annotations;
@@ -61,7 +61,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 	@Nullable
 	private volatile List<Aggregate> aggregates;
 
-	private MyMultipleAliasAnnotations(AnnotatedElement element, MyMergedAnnotations.SearchStrategy searchStrategy,
+	private MyMultipleAliasAnnotations(AnnotatedElement element, SearchStrategy searchStrategy,
 									   RepeatableContainers repeatableContainers, AnnotationFilter annotationFilter) {
 		this.source = element;
 		this.element = element;
@@ -87,7 +87,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return false;
 		}
 		return Boolean.TRUE.equals(scan(annotationType,
-				MyMultipleAliasAnnotations.IsPresent.get(this.repeatableContainers, this.annotationFilter, false)));
+				IsPresent.get(this.repeatableContainers, this.annotationFilter, false)));
 	}
 
 	@Override
@@ -96,7 +96,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return false;
 		}
 		return Boolean.TRUE.equals(scan(annotationType,
-				MyMultipleAliasAnnotations.IsPresent.get(this.repeatableContainers, this.annotationFilter, false)));
+				IsPresent.get(this.repeatableContainers, this.annotationFilter, false)));
 	}
 
 	@Override
@@ -105,7 +105,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return false;
 		}
 		return Boolean.TRUE.equals(scan(annotationType,
-				MyMultipleAliasAnnotations.IsPresent.get(this.repeatableContainers, this.annotationFilter, true)));
+				IsPresent.get(this.repeatableContainers, this.annotationFilter, true)));
 	}
 
 	@Override
@@ -114,7 +114,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return false;
 		}
 		return Boolean.TRUE.equals(scan(annotationType,
-				MyMultipleAliasAnnotations.IsPresent.get(this.repeatableContainers, this.annotationFilter, true)));
+				IsPresent.get(this.repeatableContainers, this.annotationFilter, true)));
 	}
 
 	@Override
@@ -124,14 +124,14 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 
 	@Override
 	public <A extends Annotation> MergedAnnotation<A> get(Class<A> annotationType,
-                                                          @Nullable Predicate<? super MergedAnnotation<A>> predicate) {
+														  @Nullable Predicate<? super MergedAnnotation<A>> predicate) {
 		return get(annotationType, predicate, null);
 	}
 
 	@Override
 	public <A extends Annotation> MergedAnnotation<A> get(Class<A> annotationType,
-                                                          @Nullable Predicate<? super MergedAnnotation<A>> predicate,
-                                                          @Nullable MergedAnnotationSelector<A> selector) {
+														  @Nullable Predicate<? super MergedAnnotation<A>> predicate,
+														  @Nullable MergedAnnotationSelector<A> selector) {
 		if (this.annotationFilter.matches(annotationType)) {
 			return MergedAnnotation.missing();
 		}
@@ -147,14 +147,14 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 
 	@Override
 	public <A extends Annotation> MergedAnnotation<A> get(String annotationType,
-                                                          @Nullable Predicate<? super MergedAnnotation<A>> predicate) {
+														  @Nullable Predicate<? super MergedAnnotation<A>> predicate) {
 		return get(annotationType, predicate, null);
 	}
 
 	@Override
 	public <A extends Annotation> MergedAnnotation<A> get(String annotationType,
-                                                          @Nullable Predicate<? super MergedAnnotation<A>> predicate,
-                                                          @Nullable MergedAnnotationSelector<A> selector) {
+														  @Nullable Predicate<? super MergedAnnotation<A>> predicate,
+														  @Nullable MergedAnnotationSelector<A> selector) {
 		if (this.annotationFilter.matches(annotationType)) {
 			return MergedAnnotation.missing();
 		}
@@ -204,13 +204,13 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 	}
 
 	private <A extends Annotation> Spliterator<MergedAnnotation<A>> spliterator(@Nullable Object annotationType) {
-		return new MyMultipleAliasAnnotations.AggregatesSpliterator<>(annotationType, getAggregates());
+		return new AggregatesSpliterator<>(annotationType, getAggregates());
 	}
 
 	private List<Aggregate> getAggregates() {
 		List<Aggregate> aggregates = this.aggregates;
 		if (aggregates == null) {
-			aggregates = scan(this, new MyMultipleAliasAnnotations.AggregatesCollector());
+			aggregates = scan(this, new AggregatesCollector());
 			if (aggregates == null || aggregates.isEmpty()) {
 				aggregates = Collections.emptyList();
 			}
@@ -234,16 +234,16 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 	/**
 	 * the only change from {@link TypeMappedAnnotations}
 	 */
-	static MyMergedAnnotations from(AnnotatedElement element, MyMergedAnnotations.SearchStrategy searchStrategy,
-									RepeatableContainers repeatableContainers, AnnotationFilter annotationFilter) {
+	static MergedAnnotations from(AnnotatedElement element, SearchStrategy searchStrategy,
+								  RepeatableContainers repeatableContainers, AnnotationFilter annotationFilter) {
 		if (AnnotationsScanner.isKnownEmpty(element, searchStrategy)) {
 			return NONE;
 		}
 		return new MyMultipleAliasAnnotations(element, searchStrategy, repeatableContainers, annotationFilter);
 	}
 
-	static MyMergedAnnotations from(@Nullable Object source, Annotation[] annotations,
-									RepeatableContainers repeatableContainers, AnnotationFilter annotationFilter) {
+	static MergedAnnotations from(@Nullable Object source, Annotation[] annotations,
+								  RepeatableContainers repeatableContainers, AnnotationFilter annotationFilter) {
 		if (annotations.length == 0) {
 			return NONE;
 		}
@@ -267,14 +267,14 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		 * Shared instances that save us needing to create a new processor for
 		 * the common combinations.
 		 */
-		private static final MyMultipleAliasAnnotations.IsPresent[] SHARED;
+		private static final IsPresent[] SHARED;
 
 		static {
-			SHARED = new MyMultipleAliasAnnotations.IsPresent[4];
-			SHARED[0] = new MyMultipleAliasAnnotations.IsPresent(RepeatableContainers.none(), AnnotationFilter.PLAIN, true);
-			SHARED[1] = new MyMultipleAliasAnnotations.IsPresent(RepeatableContainers.none(), AnnotationFilter.PLAIN, false);
-			SHARED[2] = new MyMultipleAliasAnnotations.IsPresent(RepeatableContainers.standardRepeatables(), AnnotationFilter.PLAIN, true);
-			SHARED[3] = new MyMultipleAliasAnnotations.IsPresent(RepeatableContainers.standardRepeatables(), AnnotationFilter.PLAIN, false);
+			SHARED = new IsPresent[4];
+			SHARED[0] = new IsPresent(RepeatableContainers.none(), AnnotationFilter.PLAIN, true);
+			SHARED[1] = new IsPresent(RepeatableContainers.none(), AnnotationFilter.PLAIN, false);
+			SHARED[2] = new IsPresent(RepeatableContainers.standardRepeatables(), AnnotationFilter.PLAIN, true);
+			SHARED[3] = new IsPresent(RepeatableContainers.standardRepeatables(), AnnotationFilter.PLAIN, false);
 		}
 
 		private final RepeatableContainers repeatableContainers;
@@ -284,7 +284,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		private final boolean directOnly;
 
 		private IsPresent(RepeatableContainers repeatableContainers,
-                          AnnotationFilter annotationFilter, boolean directOnly) {
+						  AnnotationFilter annotationFilter, boolean directOnly) {
 			this.repeatableContainers = repeatableContainers;
 			this.annotationFilter = annotationFilter;
 			this.directOnly = directOnly;
@@ -293,7 +293,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		@Override
 		@Nullable
 		public Boolean doWithAnnotations(Object requiredType, int aggregateIndex,
-                                         @Nullable Object source, Annotation[] annotations) {
+										 @Nullable Object source, Annotation[] annotations) {
 			for (Annotation annotation : annotations) {
 				if (annotation != null) {
 					Class<? extends Annotation> type = annotation.annotationType();
@@ -325,8 +325,8 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return null;
 		}
 
-		static MyMultipleAliasAnnotations.IsPresent get(RepeatableContainers repeatableContainers,
-														AnnotationFilter annotationFilter, boolean directOnly) {
+		static IsPresent get(RepeatableContainers repeatableContainers,
+													  AnnotationFilter annotationFilter, boolean directOnly) {
 			// Use a single shared instance for common combinations
 			if (annotationFilter == AnnotationFilter.PLAIN) {
 				if (repeatableContainers == RepeatableContainers.none()) {
@@ -336,7 +336,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 					return SHARED[directOnly ? 2 : 3];
 				}
 			}
-			return new MyMultipleAliasAnnotations.IsPresent(repeatableContainers, annotationFilter, directOnly);
+			return new IsPresent(repeatableContainers, annotationFilter, directOnly);
 		}
 	}
 
@@ -374,7 +374,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		@Override
 		@Nullable
 		public MergedAnnotation<A> doWithAnnotations(Object type, int aggregateIndex,
-                                                     @Nullable Object source, Annotation[] annotations) {
+													 @Nullable Object source, Annotation[] annotations) {
 			for (Annotation annotation : annotations) {
 				if (annotation != null && !annotationFilter.matches(annotation)) {
 					MergedAnnotation<A> result = process(type, aggregateIndex, source, annotation);
@@ -391,7 +391,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		 */
 		@Nullable
 		private MergedAnnotation<A> process(
-                Object type, int aggregateIndex, @Nullable Object source, Annotation annotation) {
+				Object type, int aggregateIndex, @Nullable Object source, Annotation annotation) {
 			Annotation[] repeatedAnnotations = repeatableContainers.findRepeatedAnnotations(annotation);
 			if (repeatedAnnotations != null) {
 				return doWithAnnotations(type, aggregateIndex, source, repeatedAnnotations);
@@ -402,7 +402,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			for (int i = 0; i < mappings.size(); i++) {
 				MyAnnotationTypeMapping mapping = mappings.get(i);
 				if (isMappingForType(mapping, annotationFilter, this.requiredType)) {
-					MergedAnnotation<A> candidate = TypeMappedAnnotation.createIfPossible(
+					MergedAnnotation<A> candidate = MyTypeMappedAnnotation.createIfPossible(
 							mapping, source, annotation, aggregateIndex, IntrospectionFailureLogger.INFO);
 					if (candidate != null && (this.predicate == null || this.predicate.test(candidate))) {
 						if (this.selector.isBestCandidate(candidate)) {
@@ -429,7 +429,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 
 
 	/**
-	 * {@link AnnotationsProcessor} that collects {@link MyMultipleAliasAnnotations.Aggregate} instances.
+	 * {@link AnnotationsProcessor} that collects {@link Aggregate} instances.
 	 */
 	private class AggregatesCollector implements AnnotationsProcessor<Object, List<Aggregate>> {
 
@@ -443,9 +443,9 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return null;
 		}
 
-		private MyMultipleAliasAnnotations.Aggregate createAggregate(int aggregateIndex, @Nullable Object source, Annotation[] annotations) {
+		private Aggregate createAggregate(int aggregateIndex, @Nullable Object source, Annotation[] annotations) {
 			List<Annotation> aggregateAnnotations = getAggregateAnnotations(annotations);
-			return new MyMultipleAliasAnnotations.Aggregate(aggregateIndex, source, aggregateAnnotations);
+			return new Aggregate(aggregateIndex, source, aggregateAnnotations);
 		}
 
 		private List<Annotation> getAggregateAnnotations(Annotation[] annotations) {
@@ -511,7 +511,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		@Nullable
 		<A extends Annotation> MergedAnnotation<A> createMergedAnnotationIfPossible(
 				int annotationIndex, int mappingIndex, IntrospectionFailureLogger logger) {
-			return TypeMappedAnnotation.createIfPossible(
+			return MyTypeMappedAnnotation.createIfPossible(
 					this.mappings[annotationIndex].get(mappingIndex), this.source,
 					this.annotations.get(annotationIndex), this.aggregateIndex, logger);
 		}
@@ -543,7 +543,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		@Override
 		public boolean tryAdvance(Consumer<? super MergedAnnotation<A>> action) {
 			while (this.aggregateCursor < this.aggregates.size()) {
-				MyMultipleAliasAnnotations.Aggregate aggregate = this.aggregates.get(this.aggregateCursor);
+				Aggregate aggregate = this.aggregates.get(this.aggregateCursor);
 				if (tryAdvance(aggregate, action)) {
 					return true;
 				}
@@ -553,7 +553,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			return false;
 		}
 
-		private boolean tryAdvance(MyMultipleAliasAnnotations.Aggregate aggregate, Consumer<? super MergedAnnotation<A>> action) {
+		private boolean tryAdvance(Aggregate aggregate, Consumer<? super MergedAnnotation<A>> action) {
 			if (this.mappingCursors == null) {
 				this.mappingCursors = new int[aggregate.size()];
 			}
@@ -584,7 +584,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 		}
 
 		@Nullable
-		private MyAnnotationTypeMapping getNextSuitableMapping(MyMultipleAliasAnnotations.Aggregate aggregate, int annotationIndex) {
+		private MyAnnotationTypeMapping getNextSuitableMapping(Aggregate aggregate, int annotationIndex) {
 			int[] cursors = this.mappingCursors;
 			if (cursors != null) {
 				MyAnnotationTypeMapping mapping;
@@ -611,7 +611,7 @@ final class MyMultipleAliasAnnotations implements MyMergedAnnotations {
 			int size = 0;
 			for (int aggregateIndex = this.aggregateCursor;
 				 aggregateIndex < this.aggregates.size(); aggregateIndex++) {
-				MyMultipleAliasAnnotations.Aggregate aggregate = this.aggregates.get(aggregateIndex);
+				Aggregate aggregate = this.aggregates.get(aggregateIndex);
 				for (int annotationIndex = 0; annotationIndex < aggregate.size(); annotationIndex++) {
 					MyAnnotationTypeMappings mappings = aggregate.getMappings(annotationIndex);
 					int numberOfMappings = mappings.size();

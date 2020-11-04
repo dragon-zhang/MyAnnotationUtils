@@ -43,7 +43,7 @@ import java.util.Set;
  * @author Sam Brannen
  * @author ZiCheng Zhang
  * @since 5.2
- * @see MyAnnotationTypeMappings
+ * @see AnnotationTypeMappings
  * @see MyAliasFors
  */
 final class MyAnnotationTypeMapping {
@@ -407,7 +407,7 @@ final class MyAnnotationTypeMapping {
 				if (type.isAnnotation() || (type.isArray() && type.getComponentType().isAnnotation())) {
 					Class<? extends Annotation> annotationType =
 							(Class<? extends Annotation>) (type.isAnnotation() ? type : type.getComponentType());
-					MyAnnotationTypeMapping mapping = MyAnnotationTypeMappings.forAnnotationType(annotationType).get(0);
+					AnnotationTypeMapping mapping = AnnotationTypeMappings.forAnnotationType(annotationType).get(0);
 					if (mapping.isSynthesizable()) {
 						return true;
 					}
@@ -614,7 +614,7 @@ final class MyAnnotationTypeMapping {
 	}
 
 	private static boolean areEquivalent(@Nullable Object value, @Nullable Object extractedValue,
-                                         ValueExtractor valueExtractor) {
+			ValueExtractor valueExtractor) {
 
 		if (ObjectUtils.nullSafeEquals(value, extractedValue)) {
 			return true;
@@ -655,8 +655,8 @@ final class MyAnnotationTypeMapping {
 			Method attribute = attributes.get(i);
 			Object value1 = ReflectionUtils.invokeMethod(attribute, annotation);
 			Object value2;
-			if (extractedValue instanceof TypeMappedAnnotation) {
-				value2 = ((TypeMappedAnnotation<?>) extractedValue).getValue(attribute.getName()).orElse(null);
+			if (extractedValue instanceof MyTypeMappedAnnotation) {
+				value2 = ((MyTypeMappedAnnotation<?>) extractedValue).getValue(attribute.getName()).orElse(null);
 			}
 			else {
 				value2 = valueExtractor.extract(attribute, extractedValue);
