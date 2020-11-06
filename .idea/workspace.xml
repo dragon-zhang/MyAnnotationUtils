@@ -22,20 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="668ee421-aee9-4028-be02-b1f875357f02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAliasFor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAliasFors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotatedElementUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotationTypeMapping.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyAnnotationTypeMappings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyMergedAnnotations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core5x/src/main/java/org/springframework/core/annotation/MyMultipleAliasAnnotations.java" beforeDir="false" />
+    <list default="true" id="668ee421-aee9-4028-be02-b1f875357f02" name="Default Changelist" comment="扩展Spring5提供的@AlisFor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core4x/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core4x/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core4x/src/test/java/org/springframework/core/annotation/AlisforsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/core4x/src/test/java/org/springframework/core/annotation/AlisforsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core5x/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core5x/src/test/java/org/springframework/core/annotation/AlisforsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/core5x/src/test/java/org/springframework/core/annotation/AlisforsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -86,13 +81,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.AlisforsTests">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,7 +141,17 @@
       <updated>1604454493720</updated>
       <workItem from="1604454494814" duration="1331000" />
       <workItem from="1604469007756" duration="3715000" />
+      <workItem from="1604472762763" duration="292000" />
+      <workItem from="1604657154991" duration="2267000" />
     </task>
+    <task id="LOCAL-00001" summary="扩展Spring5提供的@AlisFor">
+      <created>1604472959815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604472959815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +168,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="扩展Spring5提供的@AlisFor" />
+    <option name="LAST_COMMIT_MESSAGE" value="扩展Spring5提供的@AlisFor" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-105" y="-1274" key="#Project_Structure" timestamp="1604472674585">
@@ -216,13 +227,29 @@
       <screen x="-574" y="-1417" width="2560" height="1417" />
     </state>
     <state x="215" y="-1070" key="SettingsEditor/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472661754" />
-    <state x="320" y="165" key="Vcs.Push.Dialog.v2" timestamp="1604454535223">
-      <screen x="0" y="23" width="1440" height="805" />
+    <state x="-5" y="-1167" key="Vcs.Push.Dialog.v2" timestamp="1604473012383">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
     </state>
+    <state x="-5" y="-1167" key="Vcs.Push.Dialog.v2/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604473012383" />
     <state x="320" y="165" key="Vcs.Push.Dialog.v2/0.23.1440.805@0.23.1440.805" timestamp="1604454535223" />
     <state x="519" y="-788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604472577362">
       <screen x="-574" y="-1417" width="2560" height="1417" />
     </state>
     <state x="519" y="-788" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.805/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604472577362" />
+    <state x="371" y="-1092" width="670" height="676" key="search.everywhere.popup" timestamp="1604657835245">
+      <screen x="-574" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="371" y="-1092" width="670" height="676" key="search.everywhere.popup/0.23.1440.807/-574.-1417.2560.1417@-574.-1417.2560.1417" timestamp="1604657835245" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core4x/src/test/java/org/springframework/core/annotation/AlisforsTests.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
